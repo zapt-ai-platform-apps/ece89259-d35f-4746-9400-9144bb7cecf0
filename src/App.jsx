@@ -12,14 +12,9 @@ export default function App() {
     setLoading(true);
     console.log('Fetching meaning for:', word);
     try {
-      const response = await createEvent({
-        event_type: 'chatgpt_request',
-        response_type: 'text',
-        data_input: {
-          app_id: import.meta.env.VITE_PUBLIC_APP_ID,
-          prompt: `Define the word "${word}" in a concise and clear manner.`,
-          response_type: 'text',
-        },
+      const response = await createEvent('chatgpt_request', {
+        prompt: `Define the word "${word}" in a concise and clear manner.`,
+        response_type: 'text'
       });
       setMeaning(response);
     } catch (error) {
