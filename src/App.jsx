@@ -14,6 +14,7 @@ export default function App() {
     try {
       const response = await createEvent({
         event_type: 'chatgpt_request',
+        response_type: 'text',
         data_input: {
           app_id: import.meta.env.VITE_PUBLIC_APP_ID,
           prompt: `Define the word "${word}" in a concise and clear manner.`,
